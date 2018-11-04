@@ -1,0 +1,32 @@
+{{> header}}
+
+ {{#if memes}}
+<div id="meme-feed">
+    <h1>Meme Feed</h1>
+    <div id="memes">
+        {{#each memes}}
+        <div class="meme">
+            <a href="#/title" class="meme-title">{{title}}</a>
+            <br>
+            <a href="#/imageUrl"><img class="meme-image" src="{{imageUrl}}"></a>
+            <div class="info">
+
+                <div id="data-buttons">
+                    <a href="#/check/{{_id}}" class="custom-button">Check Out</a>
+                    {{#if isAuthor}}
+                    <a href="#/edit/{{_id}}" class="custom-button">Edit</a>
+                    <a href="#/delete/{{_id}}" class="custom-button">Delete</a>
+                    {{/if}}
+                    <a href="#/user/{{_id}}" class="creator">Creator: {{creator}}</a>
+                </div>
+            </div>
+            <hr>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{else}}
+     <p class="no-memes">No memes in database.</p>
+ {{/if}}
+
+{{> footer}}
